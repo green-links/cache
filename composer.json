@@ -1,0 +1,38 @@
+{
+    "autoload": {
+        "psr-4": {
+            "GreenLinks\\Cache\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Integration\\": "test/integration",
+            "Test\\Unit\\":        "test/unit"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false,
+    "repositories": [
+        {
+            "url":  "git@github.com:green-links/file-system.git",
+            "type": "vcs"
+        }
+    ],
+    "require": {
+        "php":                     ">=7.4",
+        "green-links/file-system": "dev-main",
+        "psr/cache":               "^1.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpspec/prophecy":          "^1.12",
+        "phpunit/phpunit":           "^9.5"
+    },
+    "scripts": {
+        "test":       ["@phpunit", "@phpcs"],
+        "phpunit":    "phpunit",
+        "phpcs":      ["@phpcs-src", "@phpcs-test"],
+        "phpcs-src":  "phpcs src --standard=phpcs-src.xml",
+        "phpcs-test": "phpcs test --standard=phpcs-test.xml"
+    }
+}
